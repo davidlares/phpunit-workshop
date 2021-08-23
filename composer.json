@@ -1,0 +1,17 @@
+{
+    "name": "davidlares/gamebook",
+    "description": "A simple PHP App with intense PHPUnit testing",
+    "type": "project",
+    "require-dev": {
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David E Lares S",
+            "email": "david.e.lares@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
