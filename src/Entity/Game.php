@@ -5,7 +5,7 @@
     // protected attributes
     protected $title;
     protected $imagePath;
-    protected $rating;
+    protected $ratings;
 
     // getters and setters
     public function getTitle() {
@@ -28,17 +28,39 @@
       $this->imagePath = $value;
     }
 
-    public function getRating() {
-      return $this->rating;
+    public function getRatings() {
+      return $this->ratings;
     }
 
-    public function setRating($value) {
-      $this->rating = $value;
+    public function setRatings($value) {
+      $this->ratings = $value;
     }
 
     // methods
-    public function isRecommended() {
-      return $this->getAverageScore() >= 3;
+    public function isRecommended($user) {
+      $compatibility = $user->getGenreCompatibility($this->getGenreCode());
+      return $this->getAverageScore() / 10 * $compatibility >= 3;
+    }
+
+    public function getAverageScore() {
+      $ratings = $this->getRatings(); // useful logic, makes testing simpler
+      $numRatings = count($ratings);
+      // fixing
+      if($numRatings == 0) {
+        return null;
+      }
+      // count
+      $total = 0;
+      foreach($ratings as $rating) {
+        $score = $rating->getScore();
+        if($score === null) {
+          $numRatings--;
+          continue;
+        }
+        $total += $score;
+      }
+      // returning the average -> first run: possible division by zero
+      return $total / $numRatings;
     }
 
   }
