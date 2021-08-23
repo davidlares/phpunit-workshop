@@ -80,7 +80,7 @@ class GameTest extends TestCase {
     $game->method('getAverageScore')->willReturn(10);
     // mocking compatibility
     $user = $this->getMockBuilder('User')->onlyMethods(['getGenreCompatibility'])->getMock();
-    $user->method('getGenreCompatibility')->willReturn(2);
+    $user->method('getGenreCompatibility')->willReturn(10);
     // asserting True
     $this->assertTrue($game->isRecommended($user));
   }
