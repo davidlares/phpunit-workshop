@@ -12,6 +12,8 @@
         }
     ],
     "require": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "guzzlehttp/guzzle": "~6.0",
+        "fabpot/goutte": "^4.0"
     }
 }

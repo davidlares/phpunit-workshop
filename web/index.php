@@ -20,7 +20,7 @@
       <li>
         <?php echo $game->getTitle() ?>
         <br>
-        <?php echo $game->getRating() ?>
+        <?php echo $game->getAverageScore() ?>
         <img src="<?php echo $game->getImagePath() ?>">
       </li>
   <?php endforeach ?>

@@ -36,6 +36,14 @@
       $this->ratings = $value;
     }
 
+    public function toArray() {
+      $array = ['title' => $this->getTitle(), 'imagePath' => $this->getImagePath(), 'ratings' => [],];
+      foreach ($this->getRatings() as $rating) {
+        $array['ratings'][] = $rating->toArray();
+      }
+      return $array;
+    }
+
     // methods
     public function isRecommended($user) {
       $compatibility = $user->getGenreCompatibility($this->getGenreCode());
