@@ -18,7 +18,7 @@ class UserTest extends TestCase {
     $user = $this->getMockBuilder('User')->onlyMethods(['findRatingsByGenre'])->getMock();
     $user->method('findRatingsByGenre')->willReturn([$rat1, $rat2]);
     // getting average
-    $this->assertEquals(7, $game->getGenreCompatibility('zombies'));
+    $this->assertEquals(7, $user->getGenreCompatibility('zombies'));
   }
 
   public function testRatingsByGenre_With1ZombieAnd1Shooter_Returns1Zombie() {
@@ -32,6 +32,10 @@ class UserTest extends TestCase {
     $rat1->method('getGame')->willReturn($zombies);
     $rat2 = $this->getMockBuilder('Rating')->addMethods(['getGame'])->getMock();
     $rat2->method('getGame')->willReturn($shooter);
+    // mocking user
+    $user = $this->getMockBuilder('User')->addMethods(['getRatings'])->getMock();
+    $user->method('getRatings')->willReturn([$rat1, $rat2]);
+
     // getting average
     $ratings = $user->findRatingsByGenre('zombies');
     $this->assertCount(1, $ratings);
