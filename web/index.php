@@ -18,9 +18,9 @@
 <ul>
   <?php foreach($games as $game): ?>
       <li>
-        <?php echo $game->getTitle() ?>
-        <br>
-        <?php echo $game->getAverageScore() ?>
+        <span class="title"><?php echo $game->getTitle() ?></span><br>
+        <a href="add-rating.php?name=<?php echo $game->getId(); ?>">Rate</a>
+        <?php echo $game->getAverageScore() ?><br>
         <img src="<?php echo $game->getImagePath() ?>">
       </li>
   <?php endforeach ?>

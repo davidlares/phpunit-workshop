@@ -36,7 +36,7 @@ class GameRepository {
     $games = [];
     for($i = 1; $i <= 6; $i++) {
       // each iteration instance
-      $game = new Game();
+      $game = new Game($i); // id to the constructor
       $game->setTitle("Game ". $i);
       $game->setImagePath('/web/images/game.jpg');
       // adding rating

@@ -6,8 +6,19 @@
     protected $title;
     protected $imagePath;
     protected $ratings;
+    protected $id;
+
+    // constructor = id immutable
+    public function __construct($id = null) {
+      $this->id = $id;
+    }
 
     // getters and setters
+
+    public function getId() {
+      return $this->id;
+    }
+
     public function getTitle() {
       return $this->title;
     }
