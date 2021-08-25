@@ -1,0 +1,20 @@
+<phpunit bootstrap="src/Test/bootstrap.php" colors="true">
+  <testSuites>
+    <testsuite name="unit">
+      <directory suffix="Test.php">src/Test/Unit</directory>
+    </testsuite>
+  </testSuites>
+  <!-- coverage -->
+  <logging>
+    <log type="coverage-html" target="web/coverage" lowUpperBound="35" highLowerBound="70" />
+  </logging>
+  <!-- filtering files (excluding tests)-->
+  <filter>
+    <whitelist>
+      <directory suffix=".php">src</directory>
+      <exclude>
+        <directory suffix=".php">src/Test</directory>
+      </exclude>
+    </whitelist>
+  </filter>
+</phpunit>
